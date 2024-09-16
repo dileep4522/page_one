@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USERFORM</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='uss.css') }}">
+    <script src="{{ url_for('static', filename='usss.js') }}"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>user-details</h2>
+        </div>
+        <form class="detailsform" enctype="multipart/form-data" method="POST" action="/user_details">
+            <!-- <div class="field">
+                <label for="user_id">User Name</label>
+                <input type="text" id="user_id" placeholder="your name" required minlength="3">
+            </div> -->
+            <div class="field">
+                <lable for="user_id">User-Id</lable>
+                <input type="text" id="user_id" placeholder="1111111" name="user_id" required>
+            </div>
+            <div class="field">
+                <lable for="photo">Image</lable>
+                <input type="file" id="photo" required name="photo">
+            </div>
+            <div class="field">
+                <lable for="mobile_no">Phone-No</lable>
+                <input type="text" id="mobile_no" pattern="\d{10}"title="Enter a valid 10 - digit number" minlength="10" name="mobile_no">
+            </div>
+            <div class="field">
+                <lable for="company_id">Company-Id</lable>
+                <input type="text" id="company_id" required name="company_id">
+            </div>
+            <button class="btn"><input type="submit" class="but"></button>
+        </form>
+    </div>
+    <div class="box">
+        <button type="button" class="prev"><a href="#">Previous</a></button>
+        <ul class="ul">
+            <li><a href="userform.html" class="page_number active_page">1</a></li>
+            <li><a href="techform.html" class="page_number ">2</a></li>
+            <li><a href="modules.html" class="page_number">3</a></li>
+            <li><a href="manuals.html" class="page_number">4</a></li>
+            <li><a href="machine.html" class="page_number">5</a></li>
+            <li><a href="machine_card.html" class="page_number">6</a></li>
+            <li><a href="layers.html" class="page_number">7</a></li>
+            <li><a href="io_list.html" class="page_number">8</a></li>
+            <li><a href="card_inven.html" class="page_number">9</a></li>
+        </ul>
+        <button type="button" class="next"><a href="techform.html">Next</a></button>
+    </div>
+    <!-- <script>
+        let ul=document.querySelector(".ul");
+        let prev=document.querySelector(".prev");
+        let next=document.querySelector(".next");
+        let current_page=1;
+        let total_page=9;
+        let base_path = "/page=";
+        create_pages(current_page);
+
+        // create_pages(current_page);
+
+
+
+    function create_pages(current_page) {
+        ul.innerHTML = "";
+        let before_page = current_page - 2;
+        let after_page = current_page + 2;
+
+        if (current_page <= 2) {
+            before_page = 1;
+        }
+        if (current_page >= total_page - 1) {
+            after_page = total_page;
+        }
+
+        for (let i = before_page; i <= after_page; i++) {
+            let active_class = (current_page === i) ? "active_page" : "";
+
+            // ul.innerHTML += <li><a href="" class="page_number ${active_class}" onclick="handlePageClick(${i})">${i}</a></li>;
+             ul.innerHTML += `
+            <li>
+                <a href="${base_path}${i}" class="page_number ${active_class}" onclick="handlePageClick(event, ${i})">${i}</a>
+                </li>`;
+
+        }
+
+
+        prev.style.display = (current_page > 1) ? "block" : "none";
+        next.style.display = (current_page < total_page) ? "block" : "none";
+    }
+
+    function handlePageClick(page) {
+        current_page = page;
+        create_pages(current_page);
+    }
+
+    prev.onclick = function() {
+        if (current_page > 1) {
+            current_page--;
+            create_pages(current_page);
+        }
+    }
+
+    next.onclick = function() {
+        if (current_page < total_page) {
+            current_page++;
+            create_pages(current_page);
+        }
+    }
+
+</script> -->
+
+
+<script src="usss.js"></script>
+</body>
+</html>
