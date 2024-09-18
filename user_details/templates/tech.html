@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH-DETAILS</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tech.css') }}">
+      <script src="{{ url_for('static', filename='tech.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h2>TECH-DETAILS</h2>
+        </div>
+        <form class="techform" action="/add_technical" method="post">
+            <div class="field">
+                <label for="item_name">ITEM-NAME</label>
+                <input type="text" id="item_name" placeholder="item name" required minlength="3" name="item_name">
+            </div>
+            <div class="field">
+                <label for="manufacture_name">MANFACTURER_NAME</label>
+                <input type="text" id="manufacture_name" name="manufacture_name" placeholder="your name" required minlength="3">
+            </div>
+            <div class="field">
+                <label for="manufacture_model_no">MANFACTURER_MODEL_NO</label>
+                <input type="number" id="manufacture_model_no" name="manufacture_model_no" placeholder="123456777" required minlength="1">
+            </div>
+            <div class="field">
+                <label for="expiry_date">EXPIRY_DATE</label>
+                <input type="date" id="expiry_date" name="expiry_date" required>
+            </div>
+            <input type="submit" class="btn">
+        </form>
+    </div>
+    <div class="box">
+        <button type="button" class="prev"><a href="userform.html">Previous</a></button>
+        <ul class="ul">
+            <li><a href="userform.html" class="page_number">1</a></li>
+            <li><a href="techform.html" class="page_number  active_page">2</a></li>
+            <li><a href="modules.html" class="page_number">3</a></li>
+            <li><a href="manuals.html" class="page_number">4</a></li>
+            <li><a href="machine.html" class="page_number">5</a></li>
+            <li><a href="machine_card.html" class="page_number">6</a></li>
+            <li><a href="layers.html" class="page_number">7</a></li>
+            <li><a href="io_list.html" class="page_number">8</a></li>
+            <li><a href="card_inven.html" class="page_number">9</a></li>
+        </ul>
+        <button type="button" class="next"><a href="modules.html">Next</a></button>
+    </div>
+
+
+</body>
+</html>

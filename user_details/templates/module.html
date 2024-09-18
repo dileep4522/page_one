@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODULES</title>
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='module.css') }}">
+      <script src="{{ url_for('static', filename='module.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class=" head">
+            <h2>Modules</h2>
+        </div>
+        <form class="moduleform" action="/modules" method="post">
+            <div class="field">
+                <label for="module_name">Module_Name</label>
+                <input type="text" id="module_name"  name="module_name" placeholder="module name" required>
+            </div>
+            <div class="field">
+                <label for="icons">Icon</label>
+                <input type="text" id="icons" name="icons" placeholder="icon" required>
+            </div>
+            <div class="field">
+                <label for="type">Type</label>
+                <input type="text" id="type"placeholder="type" name="type" required>
+            </div>
+            <input type="submit" name="submit" class="mbtn">
+        </form>
+    </div>
+    <div class="box">
+        <button type="button" class="prev"><a href="techform.html">Previous</a></button>
+        <ul class="ul">
+            <li><a href="userform.html" class="page_number">1</a></li>
+            <li><a href="techform.html" class="page_number ">2</a></li>
+            <li><a href="modules.html" class="page_number active_page">3</a></li>
+            <li><a href="manuals.html" class="page_number">4</a></li>
+            <li><a href="machine.html" class="page_number">5</a></li>
+            <li><a href="machine_card.html" class="page_number">6</a></li>
+            <li><a href="layers.html" class="page_number">7</a></li>
+            <li><a href="io_list.html" class="page_number">8</a></li>
+            <li><a href="card_inven.html" class="page_number">9</a></li>
+        </ul>
+        <button type="button" class="next"><a href="manuals.html">Next</a></button>
+    </div>
+</body>
+</html>

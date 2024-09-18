@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MACHINE</title>
+         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='machine_details.css') }}">
+<!--      <script src="{{ url_for('static', filename='machine_details.js') }}"></script>-->
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h2>MACHINE-DETAILS</h2>
+        </div>
+        <form class="machform" action="/machine_details" method="post">
+            <div class="field">
+                <label for="machine_id">MACHINE-ID</label>
+                <input type="text" id="machine_id" name="machine_id"  placeholder="machine id" required>
+            </div>
+            <div class="field">
+                <label for="machine_name">MACHINE_NAME</label>
+                <input type="text" id="machine_name" name="machine_name" placeholder="machine name" required minlength="3">
+            </div>
+            <div class="field">
+                <label for="model_no">MODEL_NO</label>
+                <input type="text" id="model_no" name="model_no" placeholder="123456777" required minlength="1">
+            </div>
+            <div class="field">
+                <label for="gateway_id">GATEWAY_ID</label>
+                <input type="text" id="gateway_id" name="gateway_id" required>
+            </div>
+            <div class="field">
+                <label for="manual">MANUALS</label>
+                <input type="text" id="manual" name="manual" required>
+            </div>
+            <div class="field">
+                <label for="technical_table">TECHNICAL_DETAILS</label>
+                <input type="text" id="technical_table" name="technical_table" required>
+            </div>
+            <div class="field">
+                <label for="io_group_id">IO_GROUP_ID</label>
+                <input type="text" id="io_group_id" name="io_group_id" required>
+            </div>
+            <input type="submit" class="macbtn">
+        </form>
+    </div>
+    <div class="box">
+        <button type="button" class="prev"><a href="manuals.html">Previous</a></button>
+        <ul class="ul">
+            <li><a href="userform.html" class="page_number">1</a></li>
+            <li><a href="techform.html" class="page_number">2</a></li>
+            <li><a href="modules.html" class="page_number">3</a></li>
+            <li><a href="manuals.html" class="page_number">4</a></li>
+            <li><a href="machine.html" class="page_number active_page">5</a></li>
+            <li><a href="machine_card.html" class="page_number">6</a></li>
+            <li><a href="layers.html" class="page_number">7</a></li>
+            <li><a href="io_list.html" class="page_number">8</a></li>
+            <li><a href="card_inven.html" class="page_number">9</a></li>
+        </ul>
+        <button type="button" class="next"><a href="machine_card.html">Next</a></button>
+    </div>
+
+</body>
+</html>
