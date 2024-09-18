@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MACHINE_CARD</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='machine_list.css') }}">
+      <script src="{{ url_for('static', filename='machine_list.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h2>MACHINE-CARD_LIST</h2>
+        </div>
+        <form class="machineform" action="\machine_list" method="post">
+            <div class="field">
+                <label for="machine_id">MACHINE-ID</label>
+                <input type="text" id="machine_id" name="machine_id" placeholder="machine id" required cols="10" rows="5">
+            </div>
+            <div class="field">
+                <label for="kpi_name">KPI_NAME</label>
+                <input type="text" id="kpi_name" name="kpi_name" placeholder="kpi name" required>
+            </div>
+            <div class="field">
+                <label for="datapoints">DATA_POINTS</label>
+                <input type="text" id="datapoints" name="datapoints"  placeholder="123456777" required minlength="1">
+            </div>
+            <div class="field">
+                <label for="mode">MODE</label>
+                <input type="text" id="mode" name="mode" required>
+            </div>
+            <div class="field">
+                <label for="conversion">CONVERSION_FUN</label>
+                <input type="text" id="conversion" name="conversion" required>
+            </div>
+            <div class="field">
+                <label for="x_label">X_LABEL</label>
+                <input type="text" id="x_label"  name="x_label" required>
+            </div>
+            <div class="field">
+                <label for="y_label">Y_LABEL</label>
+                <input type="text" id="y_label" name="y_label" required>
+            </div>
+            <div class="field">
+                <label for="ledger">LEDGER</label>
+                <input type="text" id="ledger" name="ledger" required>
+            </div>
+            <div class="field">
+                <label for="title">TITLE</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="field">
+                <label for="card_type">CARD_TYPE</label>
+                <input type="text" id="card_type" name="card_type" required>
+            </div>
+            <div class="field">
+                <label for="unit">UNIT</label>
+                <input type="text" id="unit" name="unit"  required>
+            </div>
+            <input type="submit" class="machinebtn">
+        </form>
+    </div>
+    <div class="box">
+        <button type="button" class="prev"><a href="machine.html">Previous</a></button>
+        <ul class="ul">
+            <li><a href="userform.html" class="page_number">1</a></li>
+            <li><a href="techform.html" class="page_number">2</a></li>
+            <li><a href="modules.html" class="page_number">3</a></li>
+            <li><a href="manuals.html" class="page_number">4</a></li>
+            <li><a href="machine.html" class="page_number">5</a></li>
+            <li><a href="machine_card.html" class="page_number active_page">6</a></li>
+            <li><a href="layers.html" class="page_number">7</a></li>
+            <li><a href="io_list.html" class="page_number">8</a></li>
+            <li><a href="card_inven.html" class="page_number">9</a></li>
+        </ul>
+        <button type="button" class="next"><a href="layers.html">Next</a></button>
+    </div>
+</body>
+</html>

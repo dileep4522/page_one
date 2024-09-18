@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IO_LIST</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='io_list.css') }}">
+      <script src="{{ url_for('static', filename='io_list.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h2>IO_LIST</h2>
+        </div>
+        <form class="ioform" action="\io_list" method="post">
+            <div class="field">
+                <label for="io_group">Io_Group</label>
+                <input type="text" id="io_group"  name="io_group" placeholder="io group" required>
+            </div>
+            <div class="field">
+                <label for="io_type">Io_Type</label>
+                <input type="text" id="io_type" name="io_type" placeholder="io type" required>
+            </div>
+            <div class="field">
+                <label for="io_name">Io_Name</label>
+                <input type="text" id="io_name" name="io_name" placeholder="io name" required>
+            </div>
+            <div class="field">
+                <label for="io_value">Value</label>
+                <input type="text" id="io_value" name="io_value" required>
+            </div>
+            <div class="field">
+                <label for="io_color">Color</label>
+                <input type="text" id="io_color"  name="io_color" required>
+            </div>
+            <div class="field" id="rangee">
+                <label for="io_range">Io_Range</label>
+                <input type="range" id="io_range" name="io_range" required min="0" max="100">
+            </div>
+            <div class="field">
+                <label for="io_unit">Io_Unit</label>
+                <input type="text" id="io_unit" name="io_unit" required>
+            </div>
+            <div class="field2" id="con">
+                <p>Controls</p>
+                   <input type="radio" id="contol" name="control" value="true">
+                   <label for="control">True</label><br>
+                   <input type="radio" id="control" name="control" value="false">
+                   <label for="control">false</label>
+            </div>
+            <div class="field2" id="al">
+                 <p>Alarm</p>
+                  <input type="radio" id="alarm" name="alarm" value="true">
+                  <label for="true">True</label><br>
+                  <input type="radio" id="alarm" name="alarm" value="false">
+                  <label for="alarm">false</label>
+            </div>
+            <input type="submit" class="iobtn">
+        </form>
+    </div>
+    <div class="box">
+        <button type="button" class="prev"><a href="layers.html">Previous</a></button>
+        <ul class="ul">
+            <li><a href="userform.html" class="page_number">1</a></li>
+            <li><a href="techform.html" class="page_number">2</a></li>
+            <li><a href="modules.html" class="page_number">3</a></li>
+            <li><a href="manuals.html" class="page_number">4</a></li>
+            <li><a href="machine.html" class="page_number">5</a></li>
+            <li><a href="machine_card.html" class="page_number">6</a></li>
+            <li><a href="layers.html" class="page_number">7</a></li>
+            <li><a href="io_list.html" class="page_number active_page">8</a></li>
+            <li><a href="card_inven.html" class="page_number">9</a></li>
+        </ul>
+        <button type="button" class="next"><a href="card_inven.html">Next</a></button>
+    </div>
+</body>
+</html>

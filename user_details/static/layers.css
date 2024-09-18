@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 100px;
+    width: 100vw;
+    height: 100dvh;
+    flex-direction: column;
+    gap:30px;
+}
+.container{
+    width: 350px;
+    max-width: 80%;
+    border: 2px solid black;
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(6, 100, 61, 0.75);
+    max-height: fit-content;
+
+}
+.head{
+    width: 100%;
+    padding: 0.7rem;
+    text-align: center;
+    background-color:coral;
+    color: azure;
+}
+.layerform{
+    padding: 0.7rem 2rem;
+
+}
+.field{
+    margin-bottom: 5px;
+}
+.field label{
+    display: inline-flex;
+    margin-bottom: 5px;
+    color:aliceblue;
+}
+.field input{
+    display: block;
+    width: 70%;
+    max-width: 70%;
+    padding:0.7rem 0.5rem;
+    font-size: larger;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.layerbtn{
+    display: block;
+    width: 50%;
+    padding: 0.7rem;
+    margin-top: 30px;
+    background-color: #02323b;
+    color: azure;
+    font-variant: small-caps;
+    font-size: larger;
+}
+input:user-valid{
+    border-color: rgb(3, 130, 3);
+}
+input:user-invalid{
+    border-color: red;
+}
+input:focus{
+    border-color: orange;
+}
+
+
+/* PAGINATION */
+.box{
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0px 10px 30px -45px black;
+    background-color: darkslateblue;
+    display: flex;
+    align-items: center;
+}
+.box ul{
+    display: flex;
+    margin: 0 10px;
+}
+.box ul li{
+    list-style-type: none;
+    margin: 0px 5px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+}
+.box ul li a{
+    font-size: 25px;
+    text-decoration: none;
+    color:aliceblue;
+    display: block;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+.box ul li .active_page{
+    background-color: #a70269;
+    color: aliceblue;
+}
+.box ul li a:hover,.box button a:hover{
+    background-color: #a70269;
+    color: aliceblue;
+}
+.box button{
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border-radius: 100px;
+    /* padding: 10px; */
+    transition: all 0.5s;
+}
+.box button a{
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+    overflow: hidden;
+    color: black;
+    border-radius:50px;
+}

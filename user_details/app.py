@@ -3,7 +3,7 @@ import os
 from flask import jsonify, request, render_template
 from werkzeug.utils import secure_filename
 from __init__ import app, db
-from model import User,Technical,Modules,Manuals,Machine_form
+from model import User,Technical,Modules,Manuals,Machine_form,Layers,Cards,Machine,Iodata
 
 # Define upload folder and allowed extensions
 UPLOAD_FOLDER = 'static/uploads/'
@@ -96,7 +96,7 @@ def technical_details():
             print(f"Error saving user: {e}")
             return jsonify({"error": "An error occurred while saving to the database"}), 500
 
-        return jsonify({ "message": "User details added successfully",}),200
+        return jsonify({ "message": "technical_details added successfully",}),200
 
     return render_template("tech.html")
 
@@ -124,7 +124,7 @@ def modules():
             print(f"Error saving user: {e}")
             return jsonify({"error": "An error occurred while saving to the database"}), 500
 
-        return jsonify({ "message": "User details added successfully",}),200
+        return jsonify({ "message": "modules details added successfully",}),200
 
     return render_template("module.html")
 
@@ -148,7 +148,7 @@ def manuals():
             print(f"Error saving user: {e}")
             return jsonify({"error": "An error occurred while saving to the database"}), 500
 
-        return jsonify({"message": "User details added successfully", }), 200
+        return jsonify({"message": "manuals details added successfully", }), 200
 
     return render_template("manuals.html")
 
@@ -179,6 +179,117 @@ def machine_details():
         return jsonify({"message": "Machine details added successfully"}), 200
 
     return render_template("machine_details.html")
+
+
+@app.route("/layers",methods = ['GET','POST'])
+def layers():
+    if request.method == 'POST':
+        layer_type = request.form.get('layer_type')
+        layer_name = request.form.get('layer_name')
+        company_logo = request.form.get('company_logo')
+        location = request.form.get('location')
+
+        if not layer_type or not layer_name or not company_logo or not location:
+            return jsonify({"error": "Missing required fields"}), 400
+
+        print(f"layer_type: {layer_type},layer_name: {layer_name},company_logo: {company_logo},location: {location}")
+
+        try:
+            layers_data = Layers(layer_type=layer_type,layer_name=layer_name,company_logo=company_logo,location=location)
+            layers_data.save()
+        except Exception as e:
+            print(f"Error saving machine details: {e}")
+            return jsonify({"error": "An error occurred while saving to the database"}), 500
+
+        return jsonify({"message": "layers details added successfully"}), 200
+
+    return render_template("layers.html")
+
+@app.route("/cards",methods = ['GET','POST'])
+def cards_inventory():
+    if request.method == 'POST':
+        card_type = request.form.get('card_type')
+
+        if not card_type:
+            return jsonify({"error": "Missing required fields"}), 400
+
+        print(f"cards_type: {card_type}")
+
+        try:
+            cards_data = Cards(card_type=card_type)
+            cards_data.save()
+
+        except Exception as e:
+            print(f"Error saving machine details: {e}")
+            return jsonify({"error": "An error occurred while saving to the database"}), 500
+
+        return jsonify({"message": "cards details added successfully"}), 200
+
+    return render_template("cards.html")
+
+
+@app.route("/machine_list",methods = ['GET','POSt'])
+def machine_card_list():
+    if request.method == 'POST':
+        machine_id = request.form.get('machine_id')
+        kpi_name = request.form.get('kpi_name')
+        datapoints = request.form.get('datapoints')
+        mode = request.form.get('mode')
+        conversion = request.form.get('conversion')
+        x_label = request.form.get('x_label')
+        y_label = request.form.get('y_label')
+        ledger = request.form.get('ledger')
+        title = request.form.get('title')
+        card_type = request.form.get('card_type')
+        unit = request.form.get('unit')
+
+        if not machine_id or not kpi_name or not datapoints or not mode or not conversion or not x_label or not y_label or not ledger or not title or not card_type or not unit:
+            return jsonify({"error": "Missing required fields"}), 400
+
+        try:
+            machine_data = Machine(machine_id=machine_id,kpi_name=kpi_name,datapoints=datapoints,mode=mode,conversion=conversion,x_label=x_label,y_label=y_label,ledger=ledger,title=title,card_type=card_type,unit=unit)
+            machine_data.save()
+
+
+        except Exception as e:
+            print(f"Error saving machine details: {e}")
+            return jsonify({"error": "An error occurred while saving to the database"}), 500
+
+        return jsonify({"message": "machine details added successfully"}), 200
+
+    return render_template("machine_list.html")
+
+
+
+@app.route("/io_list",methods = ['GET','POST'])
+def io_list():
+    if request.method == 'POST':
+        io_group = request.form.get('io_group')
+        io_type = request.form.get('io_type')
+        io_name = request.form.get('io_name')
+        io_value = request.form.get('io_value')
+        io_color = request.form.get('io_color')
+        io_range = request.form.get('io_range')
+        io_unit = request.form.get('io_unit')
+        control = request.form.get('control') == 'true'
+        alarm = request.form.get('alarm') == 'true'
+
+        if not io_group or not io_type or not io_name or not io_value or not io_color or not io_range or not io_unit:
+            return jsonify({"error": "Missing required fields"}), 400
+
+        try:
+            data_io = Iodata(io_group=io_group,io_type=io_type,io_name=io_name,io_value=io_value,io_color=io_color,io_range=io_range,io_unit=io_unit,control=control,alarm=alarm)
+            data_io.save()
+        except Exception as e:
+            print(f"Error saving machine details: {e}")
+            return jsonify({"error": "An error occurred while saving to the database"}), 500
+
+        return jsonify({"message":"Io_data  added successfully"}), 200
+
+    return render_template("io_list.html")
+
+
+
 
 
 if __name__ == '__main__':

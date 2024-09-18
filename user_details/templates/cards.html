@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARD</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cards.css') }}">
+    <script src="{{ url_for('static', filename='cards.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class=" head">
+            <h2>CARD_INVENTORY</h2>
+        </div>
+        <form class="cardform" action="\cards" method="post">
+            <div class="field">
+                <label for="card_type">Card_Type</label>
+                <input type="text" id="card_type" name="card_type" placeholder="card type" required>
+            </div>
+            <input type="submit" name="submit" class="cardbtn">
+        </form>
+    </div>
+    <div class="box">
+        <button type="button" class="prev"><a href="io_list.html">Previous</a></button>
+        <ul class="ul">
+            <li><a href="userform.html" class="page_number">1</a></li>
+            <li><a href="techform.html" class="page_number ">2</a></li>
+            <li><a href="modules.html" class="page_number">3</a></li>
+            <li><a href="manuals.html" class="page_number">4</a></li>
+            <li><a href="machine.html" class="page_number">5</a></li>
+            <li><a href="machine_card.html" class="page_number">6</a></li>
+            <li><a href="layers.html" class="page_number ">7</a></li>
+            <li><a href="io_list.html" class="page_number">8</a></li>
+            <li><a href="card_inven.html" class="page_number active_page">9</a></li>
+        </ul>
+        <button type="button" class="next"><a href="#">Next</a></button>
+    </div>
+</body>
+</html>
